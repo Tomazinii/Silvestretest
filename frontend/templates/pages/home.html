@@ -1,0 +1,157 @@
+{% extends "layouts/base.html" %} {% load static %}
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/pages/home.css'%}" />
+{% endblock stylesheets %} {% block content %}
+<div class="container">
+  <div class="box-botoes">
+    <div class="content-botoes">
+      <a href="{% url 'agendar_consulta'%}"
+        ><div class="consultas">Agendar Consulta</div></a
+      >
+    </div>
+    <div class="content-botoes2">
+      <a href="{% url 'agendar_exame'%}"
+        ><div class="consultas">Agendar Exame</div></a
+      >
+    </div>
+    <div>Agende de qualquer lugar</div>
+  </div>
+</div>
+<div class="slide-home">
+  <div class="resultados-exames">
+    <p style="margin: 0px; text-align: left; align-items: center">
+      Resultado Exames
+    </p>
+    <p style="font-size: 25px; margin: 0px; margin-top: 50px; text-align: left">
+      Visualize os resultados do exame <br />
+      no portal do paciente
+    </p>
+    <div class="portal-paciente-button">Portal do Paciente</div>
+  </div>
+  <div class="imagem-slide">
+    <img src="{% static 'images/familia.jpg'%}" alt="" />
+  </div>
+</div>
+<div class="imgm">
+  <img src="{% static 'images/familia.jpg'%}" alt="" />
+</div>
+<div class="resultadosexames">
+  <div class="content-results">
+    <p style="margin: 0px; text-align: left; align-items: center">
+      Resultado Exames
+    </p>
+    
+    <p style="font-size: 11px; margin: 0px; margin-top: 8px; text-align: left">
+      Visualize os resultados do exame no portal do paciente
+    </p>
+    <div class="portal-paciente-button">Portal do Paciente</div>
+  </div>
+</div>
+<hr />
+
+
+<div class="container-especialidades">
+  <div class="title-especilities">Especilicades</div>
+  <div class="box-especilidades">
+    <div class="especialidade">
+      <div>Cardiologia</div>
+      <img src="../../static/images/heart.png" alt="" />
+    </div>
+    <div class="especialidade">
+      <div>Pediatria</div>
+      <img src="../../static/images/pe.png" alt="" />
+    </div>
+    <div class="especialidade">
+      <div>Psiquiatria</div>
+      <img src="../../static/images/brain.png" alt="" />
+    </div>
+    <div class="especialidade">
+      <div>Ortopedia</div>
+      <img src="../../static/images/tree.png" alt="" />
+    </div>
+    <div class="especialidade">
+      <div>Oftamologia</div>
+      <img src="../../static/images/eye.png" alt="" />
+    </div>
+    <div class="especialidade">
+      <div>Ginecologia</div>
+      <img src="../../static/images/ginecologia.png" alt="" />
+    </div>
+    <div></div>
+    <div class="button">Ver todas</div>
+  </div>
+</div>
+<hr />
+<div class="container-especialidades">
+  <div class="title-especilities">Como podemos te ajudar?</div>
+  <div class="boxes-comoajudar">
+    <div class="box-comoajudar">
+      Pronto Atendimento
+
+      <div class="text-comoajudar" style="font-size: 12px">
+        Estamos prontos 24h para te atender em situações de emergência ou
+        urgência em Luís Eduardo Magalhães.
+      </div>
+      <div class="button-saiba-mais">Saiba mais</div>
+      <p class="h" style="margin-top: -95px; margin-left: 130px">24h</p>
+    </div>
+    <div class="box-comoajudar">
+      Centro de Diagnósticos
+      <div class="text-comoajudar" style="font-size: 12px">
+        Excelência no atendimento e tecnologia de ponta para a realização de
+        exames e diagnósticos.
+      </div>
+      <div class="button-saiba-mais">Agende aqui</div>
+    </div>
+  </div>
+</div>
+<hr />
+<div class="container-especialidades">
+  <div class="title-especilities">Conheça nosso Blog</div>
+
+  <div class="button-to-blog"><a href="">Conheça o blog > </a></div>
+  <div class="blog-block">
+    <div class="blog-home">
+      <div class="image-blog">
+        <img src="{% static 'images/tumografia.jpg'%}" alt="" />
+      </div>
+      <div class="content-blog-home">
+        A primeira UTI de LEM está chegando!!!
+      </div>
+    </div>
+    <div class="blog-home">
+      <div class="image-blog">
+        <img src="{% static 'images/riscodeinfecçoes.jpg'%}" alt="" />
+      </div>
+      <div class="content-blog-home">Tomografia computadorizada Multislice</div>
+    </div>
+    <div class="blog-home">
+      <div class="image-blog">
+        <img src="{% static 'images/fot-nlog.jpg'%}" alt="" />
+      </div>
+      <div class="content-blog-home">
+        A primeira UTI de LEM está chegando!!!
+      </div>
+    </div>
+    <div class="blog-home">
+      <div class="image-blog">
+        <img src="{% static 'images/uti.jpg'%}" alt="" />
+      </div>
+      <div class="content-blog-home">Tomografia computadorizada Multislice</div>
+    </div>
+  </div>
+</div>
+<hr />
+<div class="container-especialidades">
+  <div class="title-especilities">Perguntas Frequentes</div>
+  <div class="issues">Como faço para marcar consulta com um especialista?</div>
+</div>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+<!-- Atlantis DEMO methods, don't include it in your project! -->
+
+{% endblock javascripts %}

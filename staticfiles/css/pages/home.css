@@ -1,0 +1,425 @@
+@font-face {
+  font-family: "myFirstFont";
+  src: url(../../fonts/FontsFree-Net-AmpleSoftPro.ttf);
+}
+
+@media (min-width: 820px) {
+  body {
+    margin: 0px;
+    padding: 0;
+  }
+  .container {
+    background-color: rgb(255, 255, 255);
+    height: 50px;
+    box-shadow: 0 0.3em 0.9em rgba(70, 70, 70, 0.185);
+
+    padding: 50px;
+  }
+  .box-botoes {
+    display: flex;
+    margin-left: 50px;
+  }
+  .box-botoes div + div {
+    margin-left: 20px;
+  }
+  a {
+    text-decoration: none;
+  }
+  .consultas {
+    display: flex;
+    text-decoration: none;
+    color: aliceblue;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin: 0 auto;
+    border-radius: 15px;
+    width: 160px;
+    background-color: #0d8a83;
+    transition: 0.2s;
+  }
+  .consultas:hover {
+    background-color: #0a5f59;
+  }
+
+  .slide-home {
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 50px;
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .resultados-exames {
+    height: 395px;
+    padding: 100px;
+  }
+
+  .imagem-slide img {
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .resultados-exames {
+    padding: 16px;
+    font-size: 4vw;
+    text-align: center;
+
+    color: #00605b;
+  }
+  .portal-paciente-button {
+    font-size: 20px;
+    display: flex;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    background-color: #0b807b;
+    height: 50px;
+    margin-top: 120px;
+    border-radius: 15px;
+  }
+
+  .imgm img {
+    display: none;
+  }
+  .resultadosexames {
+    display: none;
+  }
+  hr {
+    margin-top: 25px;
+    width: 80%;
+    border-top: 1px solid rgb(212, 208, 208);
+  }
+  /*---------------------------Especialidades--------------------------------*/
+  /*---------------------------Especialidades--------------------------------*/
+  .container-especialidades {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 70%;
+  }
+
+  .title-especilities {
+    color: #10706c;
+    font-size: 2.5vw;
+    text-indent: 10px;
+    margin-bottom: 20px;
+  }
+
+  .box-especilidades {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin: 0 auto;
+    width: 10;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .especialidade {
+    height: 310px;
+    width: 100%;
+    color: #f5f5f5;
+    border-radius: 6px;
+    justify-self: center;
+    background: rgb(0, 60, 48);
+    background: linear-gradient(
+      145deg,
+      rgba(0, 60, 48, 0.87) 3%,
+      rgb(2, 158, 150) 100%,
+      rgb(7, 230, 215) 100%,
+      rgba(0, 212, 255, 1) 100%
+    );
+  }
+
+  .especialidade div {
+    text-align: center;
+    font-size: 3vw;
+    margin-top: 20px;
+  }
+
+  .especialidade img {
+    width: 100px;
+    margin-top: 80px;
+  }
+
+  .especialidade {
+    text-align: center;
+  }
+
+  .button {
+    height: 40px;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 100px;
+    font-size: 1.5vw;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+    border-radius: 20px;
+    color: rgb(230, 229, 227);
+    background-color: #0b807b;
+  }
+
+  /*---------------------------Especialidades--------------------------------*/
+  /*---------------------------Especialidades--------------------------------*/
+  /*---------------------------Como podemos te ajudar--------------------------------*/
+  /*---------------------------Como podemos te ajudar--------------------------------*/
+
+  .boxes-comoajudar {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 25% 25%;
+  }
+
+  .box-comoajudar {
+    height: 200px;
+    padding: 10px;
+    font-size: 2.2vw;
+    border-radius: 10px;
+    border: 1px solid #0b807b;
+  }
+  .h {
+    display: none;
+  }
+
+  .button-saiba-mais {
+    width: 60%;
+    margin-top: 10%;
+    font-size: 16px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    color: rgb(230, 229, 227);
+    background-color: #0b807b;
+  }
+  .text-comoajudar {
+    margin-top: 10px;
+    height: 50px;
+  }
+
+  /*---------------------------Como podemos te ajudar--------------------------------*/
+  /*---------------------------Como podemos te ajudar--------------------------------*/
+}
+/*---------------------------------------------------------------------*/
+/*---------------------------------------------------------------------*/
+/*---------------------------------------------------------------------*/
+/*---------------------------------------------------------------------*/
+/*---------------------------------------------------------------------*/
+/*---------------------------------------------------------------------*/
+/*---------------------------------------------------------------------*/
+/*---------------------------------------------------------------------*/
+/*---------------------------------------------------------------------*/
+@media (max-width: 820px) {
+  body {
+    font-family: myFirstFont;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .container {
+    margin: 0 auto;
+    width: 20rem;
+    text-align: center;
+  }
+  .content-botoes {
+    margin: 0 auto;
+    width: 20rem;
+    font-size: 24px;
+  }
+  a {
+    text-decoration: none;
+  }
+  .slide-home {
+    display: none;
+  }
+
+  .box-botoes {
+    margin-top: 30px;
+  }
+
+  .consultas {
+    display: flex;
+    color: aliceblue;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin: 0 auto;
+    border-radius: 50px;
+    width: 235px;
+    background-color: #0b807b;
+  }
+
+  .content-botoes2 {
+    font-size: 24px;
+    margin-top: 30px;
+  }
+
+  .imgm img {
+    margin-top: 46px;
+    width: 100%;
+  }
+
+  .resultadosexames {
+    margin: 0 auto;
+    margin-top: -100px;
+    width: 191px;
+    border-radius: 20px;
+    position: relative;
+    height: 160px;
+    background-color: #e6e6e6;
+  }
+
+  .content-results {
+    height: 100%;
+    padding: 16px;
+    padding-top: 12px;
+    font-size: 25px;
+    text-align: center;
+
+    color: #00605b;
+  }
+
+  .portal-paciente-button {
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    background-color: #0b807b;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 30px;
+  }
+
+  hr {
+    margin-top: 25px;
+    width: 380px;
+    border-top: 1px solid rgb(212, 208, 208);
+  }
+
+  .container-especialidades {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 24rem;
+  }
+
+  .title-especilities {
+    color: #10706c;
+    font-size: 23px;
+    text-indent: 10px;
+    margin-bottom: 20px;
+  }
+
+  .box-especilidades {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 1fr 1fr;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 20px;
+  }
+  .text-comoajudar {
+    display: none;
+  }
+
+  .especialidade {
+    height: 100px;
+    width: 100px;
+    color: #e6e6e6;
+    border-radius: 6px;
+    justify-self: center;
+    background: rgb(0, 60, 48);
+    background: linear-gradient(
+      145deg,
+      rgba(0, 60, 48, 0.87) 3%,
+      rgb(2, 158, 150) 100%,
+      rgb(7, 230, 215) 100%,
+      rgba(0, 212, 255, 1) 100%
+    );
+  }
+
+  .especialidade div {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .especialidade img {
+    width: 45px;
+    margin-top: 10px;
+  }
+
+  .especialidade {
+    text-align: center;
+  }
+
+  .button {
+    height: 20px;
+    width: 80px;
+    margin-top: 100px;
+    font-size: 16px;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+    border-radius: 20px;
+    color: rgb(230, 229, 227);
+    background-color: #0b807b;
+  }
+
+  .boxes-comoajudar {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .box-comoajudar {
+    height: 100px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid #0b807b;
+  }
+
+  .button-saiba-mais {
+    width: 90px;
+    margin-top: 16px;
+    font-size: 16px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 20px;
+    color: rgb(230, 229, 227);
+    background-color: #0b807b;
+  }
+}
+
+.image-blog img {
+  width: 16.5vw;
+
+  border-radius: 5px;
+}
+
+.blog-block {
+  display: flex;
+  gap: 20px;
+}
+
+.button-to-blog {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 10px;
+}
+
+.button-to-blog a {
+  color: #00605b;
+}
+
+.button-to-blog a:hover {
+  color: #024d49;
+}
+
+.content-blog-home {
+  padding: 5px;
+}

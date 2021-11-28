@@ -1,0 +1,236 @@
+<!-- MultiStep Form -->
+{% load static%}
+
+{% block stylesheets %}
+
+<head>
+  <link rel="stylesheet" href="{% static 'css/pages/agenda_consulta.css'%}" />
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"
+/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+{% endblock stylesheets %}
+
+  
+  <header>
+      <div class="container-header">
+          <div class="container-content-header">
+              <a style="color: #00605B;" href="{% url 'home'%}">
+                  <div class="box-logo-name">
+                      <div class="logo-header">
+                      
+                      </div>
+                      <div class="nomelogo">
+                          <p class="hospital">Hospital</p><p class="Silvestre">Silvestre</p>
+                      </div>
+                  </div>
+              </a>
+              <div class="space"></div>
+
+                  <a class="elements " href="{% url 'agendar_consulta' %}">Consultas</a>
+                  <a class="elements ativo" href="{% url 'agendar_exame'%}">Exames</a>
+                  <div class="space"></div>
+                  <div class="space"></div>
+                  <div class="space"></div>
+  
+              <div class="content-header">
+                  <div class="content-header-menu"><i class="fas fa-bars"></i></div>
+              </div>
+          </div>
+      </div>
+      <script src="https://kit.fontawesome.com/407f74df21.js" crossorigin="anonymous"></script>
+</header>
+{% block content%}
+<div style="margin-top: 20px;" class="container-fluid" id="grad1">
+  <div class="row justify-content-center mt-0">
+    <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+      <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+        <p style="font-size: 2vw; color: #165f57;">Vamos começar!</p>
+        <p>Preencha todos os campos do formulário para ir para a próxima etapa</p>
+        <div class="row">
+          <div class="col-md-12 mx-0">
+            <form id="msform"  action="{% url 'agendar_save' %}"
+            enctype="multipart/form-data"
+            method="POST">
+              {% csrf_token %}
+              <!-- progressbar -->
+              <ul id="progressbar">
+                <li class="active" id="account"><strong> Especialidade / Médico</strong></li>
+                <li id="personal"><strong>Informações do Paciente</strong></li>
+                <li id="personal"><strong>Agende sua Consulta</strong></li>
+                <li id="confirm"><strong>Finalizar</strong></li>
+              </ul>
+              {% csrf_token %}
+
+              <!-- fieldsets --> 
+              <fieldset>
+                <div class="form-card">
+                  <p class="fs-title">Que especialidade ou médico você está procurando?</p>
+                  <div class="teste">
+                    <select class="select-especialidade" name="especialidade" id="" required>
+                      <option disabled selected>Escolha a especialidade</option>
+                      {% for x in consulta %}
+                      <option value="{{x.Especialidade}}">{{x.Especialidade}}</option>
+
+                      <option value="{{x.Especialidade}}">{{x.user.username}}</option>
+                      {%endfor%}
+                    </select>
+                      <div class="wrapper">
+                        <input type="radio" name="tipo_de_consulta" value="presencial" id="option-1" checked>
+                        <input type="radio" name="tipo_de_consulta" value="teleconsulta" id="option-2">
+                          <label for="option-1" class="option option-1">
+                            <div class="dot"></div>
+                            <span>presencial</span>
+                            </label>
+                          <label for="option-2" class="option option-2">
+                            <div class="dot"></div>
+                            <span>teleconsulta</span>
+                    
+                      </div>
+                    </div>
+                </div>
+                <input
+                type="button"
+                name="next"
+                class="next action-button"
+                value="Next Step"
+              />
+              </fieldset>
+              <fieldset>
+                <div class="form-card">
+                  <p class="fs-title">Digite sua data de nascimento e o seu sexo, para um resultado mais preciso.</p>
+                  <div class="selects">
+                    <input style="width: 50%; margin-top: 20px;" id='datay' type="text" placeholder="dd/mm/aa" name="data_nascimento">
+                    <select name="genero" class="select-especialidade" id="" required> 
+                      <option disabled selected>Sexo</option>
+                      <option value="masculino">masculino</option>
+                      <option value="Feminino">Feminino</option>
+                    </select>
+                  </div>
+                </div>
+                <input
+                  type="button"
+                  name="previous"
+                  class="previous action-button-previous"
+                  value="Previous"
+                />
+                <input
+                type="button"
+                name="next"
+                class="next action-button"
+                value="Next Step"
+              />
+              </fieldset>
+              <fieldset>
+                <input
+                  type="button"
+                  name="previous"
+                  class="previous action-button-previous"
+                  value="Previous"
+                />
+                <input
+                  type="submit"
+                  class="next action-button"
+                  value="confirm"
+                />
+              </fieldset>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{%endblock content%}
+<script>
+  $(document).ready(function () {
+    var current_fs, next_fs, previous_fs; //fieldsets
+    var opacity;
+
+    $(".next").click(function () {
+      current_fs = $(this).parent();
+      next_fs = $(this).parent().next();
+
+      //Add Class Active
+      $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+      //show the next fieldset
+      next_fs.show();
+      //hide the current fieldset with style
+      current_fs.animate(
+        { opacity: 0 },
+        {
+          step: function (now) {
+            // for making fielset appear animation
+            opacity = 1 - now;
+
+            current_fs.css({
+              display: "none",
+              position: "relative",
+            });
+            next_fs.css({ opacity: opacity });
+          },
+          duration: 600,
+        }
+      );
+    });
+
+    $(".previous").click(function () {
+      current_fs = $(this).parent();
+      previous_fs = $(this).parent().prev();
+
+      //Remove class active
+      $("#progressbar li")
+        .eq($("fieldset").index(current_fs))
+        .removeClass("active");
+
+      //show the previous fieldset
+      previous_fs.show();
+
+      //hide the current fieldset with style
+      current_fs.animate(
+        { opacity: 0 },
+        {
+          step: function (now) {
+            // for making fielset appear animation
+            opacity = 1 - now;
+
+            current_fs.css({
+              display: "none",
+              position: "relative",
+            });
+            previous_fs.css({ opacity: opacity });
+          },
+          duration: 600,
+        }
+      );
+    });
+
+    $(".radio-group .radio").click(function () {
+      $(this).parent().find(".radio").removeClass("selected");
+      $(this).addClass("selected");
+    });
+
+    $(".submit").click(function () {
+      return false;
+    });
+  });
+</script>
+
+<script src="{% static 'js/form_agenda.js'%}"></script>
+
+
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+<SCRIPT language="javascript">
+ $(document).ready(function () {
+    $('#datay').mask('99/99/9999');
+    return false;
+});
+</SCRIPT>

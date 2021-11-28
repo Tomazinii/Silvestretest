@@ -1,0 +1,159 @@
+@media (min-width: 820px) {
+  .container-header {
+    height: 60px;
+    padding-top: 15px;
+    padding-right: 20px;
+    padding-left: 40px;
+    background-color: rgb(255, 255, 255);
+    padding-bottom: 40px;
+    box-shadow: 0 0.1em 0.8em rgba(100, 100, 100, 0.185);
+  }
+  a {
+    text-decoration: none;
+  }
+  body {
+    color: #00605b;
+    -webkit-tap-highlight-color: transparent;
+    font-family: myFirstFont;
+  }
+
+  p {
+    margin-left: 8px;
+    margin-top: 6px;
+  }
+  .Silvestre {
+    margin-top: -32px;
+    font-size: 40px;
+  }
+  .hospital {
+    font-size: 25px;
+  }
+  .container-content-header {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .elements {
+    text-decoration: none;
+    color: #10706c;
+    margin-top: 45px;
+    font-weight: 500;
+    font-size: 1.2vw;
+    transition: 0.2s;
+  }
+
+  .elements:hover {
+    color: #034d4d;
+  }
+
+  img {
+    max-width: max-content;
+  }
+
+  .logo-header {
+    height: 82px;
+    width: 85px;
+    background-image: url("../../images/logo.d59954e8675c.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 12px;
+  }
+
+  .content-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .content-header-menu {
+    display: flex;
+    width: 40px;
+    justify-content: end;
+  }
+  .content-header-menu i {
+    display: none;
+  }
+  .box-logo-name {
+    display: flex;
+  }
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+@media (max-width: 820px) {
+  .container-header {
+    -webkit-tap-highlight-color: transparent;
+    height: 60px;
+    padding-top: 20px;
+    padding-right: 20px;
+
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255);
+    padding-bottom: 40px;
+    box-shadow: 0 0.1em 0.8em rgba(100, 100, 100, 0.185);
+  }
+  a {
+    text-decoration: none;
+  }
+  body {
+    -webkit-tap-highlight-color: transparent;
+    color: #00605b;
+  }
+
+  .elements {
+    display: none;
+  }
+  .fa-bars {
+    font-size: 35px;
+    color: #0b807b;
+    margin-top: 15px;
+  }
+
+  p,
+  h2 {
+    margin-left: 8px;
+    margin-top: 6px;
+  }
+  .Silvestre {
+    margin-top: -18px;
+    font-size: 25px;
+  }
+
+  .container-content-header {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  img {
+    max-width: max-content;
+  }
+
+  .logo-header {
+    height: 60px;
+    width: 62px;
+    background-image: url("../../images/logo.d59954e8675c.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .content-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .content-header-menu {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+  }
+
+  .box-logo-name {
+    display: flex;
+  }
+}

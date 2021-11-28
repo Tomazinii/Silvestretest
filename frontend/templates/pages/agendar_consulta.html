@@ -1,0 +1,512 @@
+<!-- MultiStep Form -->
+{% load static%}
+
+{% block stylesheets %}
+
+<head>
+  <link rel="stylesheet" href="{% static 'css/pages/agenda_consulta.css'%}" />
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"
+/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+{% endblock stylesheets %}
+
+  
+  <header>
+      <div class="container-header">
+          <div class="container-content-header">
+              <a style="color: #00605B;" href="{% url 'home'%}">
+                  <div class="box-logo-name">
+                      <div class="logo-header">
+                      
+                      </div>
+                      <div class="nomelogo">
+                          <p class="hospital">Hospital</p><p class="Silvestre">Silvestre</p>
+                      </div>
+                  </div>
+              </a>
+              <div class="space"></div>
+
+                  <a class="elements ativo" href="">Consultas</a>
+                  <a class="elements" href="{% url 'agendar_exame'%}">Exames</a>
+                  <div class="space"></div>
+                  <div class="space"></div>
+                  <div class="space"></div>
+  
+              <div class="content-header">
+                  <div class="content-header-menu"><i class="fas fa-bars"></i></div>
+              </div>
+          </div>
+      </div>
+      
+      <script src="https://kit.fontawesome.com/407f74df21.js" crossorigin="anonymous"></script>
+</header>
+{% block content%}
+
+<div style="margin-top: 20px;" class="container-fluid" id="grad1">
+  
+  <div class="row justify-content-center mt-0">
+    <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+      <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+        <p>Preencha todos os campos do formulário para ir para a próxima etapa</p>
+        <div class="row">
+          <div class="col-md-12 mx-0">
+            <form id="msform"  action="{% url 'agendar_save' %}"
+            enctype="multipart/form-data"
+            method="POST">
+            
+              {% csrf_token %}
+              
+              <!-- progressbar -->
+              <ul id="progressbar">
+                <li class="active" id="account"><strong> Especialidade / Médico</strong></li>
+                <li id="personal"><strong>Informações do Paciente</strong></li>
+                <li id="plano"><strong>Escollha seu Plano</strong></li>
+                <li id="agenda"><strong>Agende sua Consulta</strong></li>
+                <li id="confirm"><strong>Finalizar</strong></li>
+              </ul>
+      
+              {% csrf_token %}
+
+              <!-- fieldsets --> 
+              <fieldset>
+                <div class="form-card">
+                  <p style="text-align: center;" class="fs-title">Que especialidade ou médico você está procurando?</p>
+                  <div class="teste">
+                    <select class="select-especialidade" name="especialidade" id="mySelect" required>
+                      <option disabled selected>Escolha a especialidade</option>
+                      {% for x in pacotes %}
+                      <option value="{{x.id}}">{{x.nome_especialidade}}</option>
+
+                      {%endfor%}
+                    </select>
+
+                      <div class="wrapper">
+                        <input type="radio" name="tipo_de_consulta" value="presencial" id="option-1" >
+                        <input type="radio" name="tipo_de_consulta" value="teleconsulta" id="option-2">
+                          <label for="option-1" class="option option-1">
+                            <div class="dot"></div>
+                            <span>presencial</span>
+                            </label>
+                          <label for="option-2" class="option option-2">
+                            <div class="dot"></div>
+                            <span>teleconsulta</span>
+                    
+                      </div>
+                    </div>
+                </div>
+                <button
+                type="button"
+                id="continuar"
+                name="next"
+                class="next action-button disabled"
+                value="Prosseguir"
+                disabled
+              >Prosseguir</button>
+
+              <script>
+
+                function valid(){
+                  if( (document.getElementById('option-1').checked || (document.getElementById('option-1'))) && (document.getElementById("mySelect").selectedIndex > 0))
+                  a = document.getElementById('continuar')
+                  a.classList.remove('disabled')
+                  document.getElementById('continuar').disabled = false
+                }
+                z = document.getElementById('option-1')
+                k = document.getElementById('option-2')
+                r = document.getElementById('mySelect')
+
+                k.addEventListener('click', valid)
+                (z.addEventListener('click',valid) || k.addEventListener('click', valid))
+
+
+              </script>
+                
+
+
+              <script>
+
+                p = document.getElementById('option-1')
+                p.add
+                function selecte(){
+                  if(document.getElementById('option-2').checked){
+                  console.log('tudo certo')
+                }else{console.log('no higth')}
+                }
+
+                document.getElementById('option-2').addEventListener('click',()=>{alert('ok')})
+             
+              </script>
+              </fieldset>
+              <fieldset>
+                <div class="form-card">
+                  <p class="fs-title">Digite sua data de nascimento e o seu sexo, para um resultado mais preciso.</p>
+                  <div class="selects">
+                    <input style="width: 50%; cursor: pointer; margin-top: 20px;background-color: #ffffff;border: 10px;padding: 10px; border-radius: 5px;box-shadow: 1px 1px 2px 1px #165f573f;
+                    " id='yourInputBoxHere' type="date" placeholder="DD/MM/AAAA" name="data_nascimento">
+                    <select name="genero" class="select-especialidade" id="sexo" required> 
+                      <option disabled selected>Sexo</option>
+                      <option  value="Masculino">Masculino</option>
+                      <option  value="Feminino">Feminino</option>
+                    </select>
+                  </div>
+                </div>
+                <input
+                  type="button"
+                  name="previous"
+                  class="previous action-button-previous"
+                  value="voltar"
+                />
+                <button
+                type="button"
+                name="next"
+                id='continuar-1'
+                class="next action-button disabled"
+                value="Prosseguir"
+                disabled
+              >Prosseguir</button>
+              
+              <script>
+
+
+                function valid(){
+                  if(document.getElementById("sexo").selectedIndex > 0 && document.getElementById('yourInputBoxHere').value.length==10)
+                  a = document.getElementById('continuar-1')
+                  a.classList.remove('disabled')
+                  document.getElementById('continuar-1').disabled = false
+                }
+                s = document.getElementById('yourInputBoxHere')
+                r = document.getElementById('sexo')
+                s.addEventListener('focusout',valid)
+                r.addEventListener('click',valid) 
+
+              </script>
+              </fieldset>
+              <fieldset>
+                <p class="fs-title">Como deseja realizar este pagamento?</p>
+                <div class="container-select">
+                  <select class="select-especialidade" name="forma_de_pagamento" id="forma-pagamento">
+                    <option disabled selected>forma de pagamento</option>
+                    <option id="plano" value="Plano">Plano</option>
+                    <option value="Particular">Particular</option>
+                  </select>
+
+                  <select class="select-especialidade disabled" name="" id="convenio" disabled>
+                    <option value="teste" disabled selected>digite o nome do seu convenio</option>
+                    <option value="Plano">Plano</option>
+                    <option value="Particular">Particular</option>
+                  </select>
+                  <select class="select-especialidade disabled" name="" id="nome-plano" disabled>
+                    <option value="nome-do-plano" disabled selected>digite o nome do seu plano</option>
+                    <option value="teste">Plano</option>
+                    <option value="teste">Particular</option>
+                  </select>
+                </div>
+
+                <input
+                  type="button"
+                  name="previous"
+                  class="previous action-button-previous"
+                  value="Previous"
+                />
+                <button
+                type="button"
+                name="next"
+                id="continuar-2"
+                class="next action-button disabled"
+                value="Prosseguir"
+                disabled
+              >Prosseguir</button>
+              <script>
+                function asdf(){
+                if(document.getElementById('forma-pagamento').selectedIndex==1){
+                document.getElementById('continuar-2').disabled = true
+                document.getElementById('continuar-2').classList.add('disabled')
+                  document.getElementById('convenio').disabled = false
+                  document.getElementById('convenio').classList.remove('disabled')
+              }else{ if (document.getElementById('forma-pagamento').selectedIndex==2){
+                document.getElementById('continuar-2').disabled = false
+                document.getElementById('continuar-2').classList.remove('disabled')
+                document.getElementById('convenio').disabled = true
+                document.getElementById('convenio').classList.add('disabled')
+
+
+              }
+                
+              }
+              }
+              document.getElementById('forma-pagamento').addEventListener('click',asdf)
+
+              function qwer(){
+                if(document.getElementById('convenio').selectedIndex !=0){
+                  document.getElementById('nome-plano').disabled = false
+                  document.getElementById('nome-plano').classList.remove('disabled')
+
+              }
+              }
+              document.getElementById('convenio').addEventListener('click',qwer)
+              function active(){
+                if(document.getElementById('nome-plano').selectedIndex !=0){
+                document.getElementById('continuar-2').disabled = false
+                document.getElementById('continuar-2').classList.remove('disabled')
+                  
+                }
+              }
+              document.getElementById('nome-plano').addEventListener('click',active)
+
+
+              </script>
+
+              </fieldset>
+       
+
+              <fieldset>
+                <div class="informacoes-especialidade">
+                  <div class="img">
+
+                  </div>
+                  <div class="informacoes">
+                    <p id="nome-medico" class="nome-medico"></p>
+                    <p class="crm">CRM 7020 </p>
+                    <p class="especialidade">Ginecologia Clinica, Obstetrícia Clínica, Reprodução Humana, Cirurgia Ginecológica</p>
+                    <div class="informacoes-extra">
+                      <ul>
+                        <li> ver preço</li>
+                        <li>ver localização</li>
+                        <li>endereço</li>
+                      </ul>
+                  </div>
+                  </div>
+                </div>
+                <div id="horarios">
+                  <select class="select-especialidade" name="horario" id="asdfg">
+                    <option value="" selected disabled>Horários disponíveis</option>
+     
+                  </select>
+                </div>
+
+                <input
+                  type="button"
+                  name="previous"
+                  class="previous action-button-previous"
+                  value="Previous"
+                />
+                <button
+                type="button"
+                name="next"
+                id="continuar-2"
+                class="next action-button confirm"
+                value="Prosseguir"
+              >Confirmar agendamento</button>
+              </fieldset>
+
+              <fieldset>
+                <h1>Dados do paciente</h1>
+                <p class="fs-title">Agora, precisamos de alguns dados do paciente para concluir este agendamento.</p>
+
+                
+                <div class="informacoes-dados">
+                  <input class="input-dados" placeholder="SEU CPF" name="cpf" type="text">
+                  <input class="input-dados" placeholder="SEU NOME COMPLETO" name="nome" type="text">
+                  <input class="input-dados" placeholder="SEU E-MAIL" name="email" type="email">
+                  <input  class="input-dados" placeholder="SEU CELULAR" name="celular" type="text">
+                </div>
+
+                <input
+                  type="button"
+                  name="previous"
+                  class="previous action-button-previous"
+                  value="Previous"
+                />
+                <input
+                  type="submit"
+                  class="next action-button"
+                  value="Finalizar"
+                />
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{%endblock content%}
+<script>
+  $(document).ready(function () {
+    var current_fs, next_fs, previous_fs; //fieldsets
+    var opacity;
+
+    $(".next").click(function () {
+      current_fs = $(this).parent();
+      next_fs = $(this).parent().next();
+      console.log('botao clicado')
+
+
+      //Add Class Active
+      $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+      //show the next fieldset
+      next_fs.show();
+      //hide the current fieldset with style
+      current_fs.animate(
+        { opacity: 0 },
+        {
+          step: function (now) {
+            // for making fielset appear animation
+            opacity = 1 - now;
+
+            current_fs.css({
+              display: "none",
+              position: "relative",
+            });
+            next_fs.css({ opacity: opacity });
+          },
+          duration: 600,
+        }
+      );
+    });
+
+    $(".previous").click(function () {
+      current_fs = $(this).parent();
+      previous_fs = $(this).parent().prev();
+
+      //Remove class active
+      $("#progressbar li")
+        .eq($("fieldset").index(current_fs))
+        .removeClass("active");
+
+      //show the previous fieldset
+      previous_fs.show();
+
+      //hide the current fieldset with style
+      current_fs.animate(
+        { opacity: 0 },
+        {
+          step: function (now) {
+            // for making fielset appear animation
+            opacity = 1 - now;
+
+            current_fs.css({
+              display: "none",
+              position: "relative",
+            });
+            previous_fs.css({ opacity: opacity });
+          },
+          duration: 600,
+        }
+      );
+    });
+
+    $(".radio-group .radio").click(function () {
+      $(this).parent().find(".radio").removeClass("selected");
+      $(this).addClass("selected");
+    });
+
+    $(".submit").click(function () {
+      return false;
+    });
+  });
+</script>
+
+<script src="{% static 'js/form_agenda.js'%}"></script>
+
+
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+
+
+
+
+
+
+<script>
+
+  function fazGet(url){
+    let request = new XMLHttpRequest()
+    request.open('get',url,false)
+    request.send()
+    return request.responseText
+  }
+  
+  
+  
+  function criaLinha(usuario){
+  
+  }
+  
+  
+  
+  
+  function main(){
+  
+    var x = document.getElementById("mySelect").selectedIndex;
+    var y = document.getElementById("mySelect").options;
+    console.log(y[x].value);
+    data = fazGet(`http://127.0.0.1:8000/api/PacoteEspecialidadeView/${y[x].value}`)
+    usuarios = JSON.parse(data);
+    p = usuarios.horario_disponivel
+    console.log('this is',usuarios.nome_medico)
+    document.getElementById('nome-medico').innerHTML = usuarios.nome_medico
+
+    console.log(p)
+    if (p.length > 12){
+      console.log('é verdade')
+    }else{
+      console.log('nao é verdade')
+    }
+
+    const horarios = ['12:20','12:20','12:20','12:20','12:20','12:20','12:20']
+    const cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi",'asdf'];
+      var text = ''
+      if(document.getElementById('asdfg').options.length <= horarios.length){
+      for (let i = 0; i < horarios.length; i++) {
+      text += horarios[i];
+      var btn = document.createElement("option");
+      btn.innerText = horarios[i];
+      btn.value = horarios[i];
+      document.getElementById('asdfg').appendChild(btn)
+      console.log(horarios[i])
+    }
+}
+
+  
+  }
+  document.getElementById("continuar-2").addEventListener('click',main)
+
+
+
+  
+  </script>
+
+  <script>
+
+
+
+  </script>
+
+  
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("mySelect").selectedIndex;
+    var y = document.getElementById("mySelect").options;
+    console.log(y[x].text);
+  }
+  </script>
+  
+
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myBtn").innerText;
+      const btn = document.getElementById("myBtn");
+      const sb = document.querySelector('#teste')
+
+     
+    }
+    </script>

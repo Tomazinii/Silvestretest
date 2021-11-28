@@ -1,0 +1,111 @@
+@font-face {
+  font-family: "myFirstFont";
+  src: url("../../fonts/FontsFree-Net-AmpleSoftPro.eb39697f80a0.ttf");
+}
+body {
+  margin: 0 auto;
+  padding: 0px;
+}
+
+.lista {
+  width: 60%;
+  font-size: 1.5vw;
+  margin: 0 auto;
+}
+
+.lista ul {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  justify-content: space-between;
+  display: flex;
+}
+
+.content {
+  height: 500px;
+  border-radius: 20px;
+  border: 1px solid;
+  width: 70%;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.container-title {
+  width: 70%;
+  margin-bottom: 20px;
+  font-size: 2vw;
+  margin: 0 auto;
+}
+
+.js-tabcontent section {
+  display: none;
+}
+
+.js-tabmenu {
+  cursor: pointer;
+}
+
+.js-tabcontent section.ativo {
+  display: block !important;
+}
+
+.js-tabmenu li.border-bottom {
+  border-bottom: 3px solid #169081;
+  transition: 0.1s;
+}
+
+.NaoPossuiAgendamento p {
+  font-size: 2vw;
+  text-align: center;
+  color: #169082a9;
+}
+
+.button {
+  margin: 0 auto;
+  text-align: center;
+}
+.button a {
+  color: #ffffff;
+  background-color: #169081;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.status {
+  display: flex;
+  font-size: 1.7vw;
+  margin-left: 20px;
+  width: 70%;
+  justify-content: space-between;
+}
+
+.box-agendamento {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 0.8fr 0.8fr 0.9fr 1fr;
+  width: 85%;
+  justify-content: space-between;
+}
+
+.border-box {
+  height: 60px;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: flex;
+
+  border: 1px solid;
+}
+.remarcar a {
+  text-align: center;
+  padding: 10px;
+  background-color: #169081;
+  height: 1.5vw;
+  color: #ffffff;
+  margin-top: 8px;
+  border-radius: 10px;
+  align-items: center;
+  display: flex;
+}

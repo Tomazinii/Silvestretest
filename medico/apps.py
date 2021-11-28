@@ -1,0 +1,10 @@
+from django.apps import AppConfig
+
+
+class MedicoConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'medico'
+
+    def ready(self):
+        import medico.signals
+   

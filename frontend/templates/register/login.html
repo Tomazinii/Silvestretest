@@ -1,0 +1,63 @@
+
+
+{% extends 'layouts/base.html'%}
+{% load static %}
+
+
+
+
+{% block stylesheets %} <link rel="stylesheet" href="{% static 'css/register/login.css'%}"> {% endblock stylesheets %}
+{% block content%}
+<div class="container-login">
+
+
+  
+  <div class="user_card ">
+    <div class="d-flex">
+      <span class="form-title"> Portal do Paciente </span>
+    </div>
+    <form method="post" class="login100-form validate-form">
+      {% csrf_token%}
+      <span class="login100-form-logo">
+        <i class="zmdi zmdi-landscape"></i>
+      </span>
+
+      <div class="wrap-input100 validate-input" data-validate="Enter username">
+        <input
+          class="form-control"
+          type="email"
+          required
+          name="email"
+          placeholder="Email"
+        />
+        <span class="focus-input100" data-placeholder="&#xf207;"></span>
+      </div>
+
+      <div class="wrap-input100 validate-input" data-validate="Enter password">
+        <input
+          class="form-control"
+          required
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
+        <span class="focus-input100" data-placeholder="&#xf191;"></span>
+      </div>
+      
+    <div class="error">
+      <p class="message">{% for message in messages %}{{message}}{% endfor%}</p>
+    </div>
+
+      <div class="container-login100-form-btn">
+        <button class="login_btn">Entrar</button>
+      </div>
+    </form>
+    <div class="esqueceuasenha">
+      <a href="{% url 'reset_password'%}">Esqueceu a senha?</a>
+    </div>
+    <div class="naopossuiconta">
+     <a href="{% url 'register'%}">Criar conta</a>
+    </div>
+  </div>
+</div>
+{% endblock content%}

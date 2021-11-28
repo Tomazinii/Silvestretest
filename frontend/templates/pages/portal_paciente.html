@@ -1,0 +1,95 @@
+{% extends 'layouts/base.html'%}
+
+{% load static %}
+{% block stylesheets %} <link rel="stylesheet" href="{% static 'css/pages/paciente.css'%}">{% endblock stylesheets %}
+
+{% block content%}
+
+<body>
+    
+<div class="lista">
+    <ul class="js-tabmenu"><li class="border-bottom">Resultados Exames</li><li>Consultas Agendadas</li><li>Exames Agendados</li><li>Configurações</li> </ul>
+</div>
+
+<div class="js-tabcontent">
+    <section class="ativo">
+        <div class="container-paciente">
+            <div class="container-title"> Resultados</div>
+
+            <div class="content">
+            </div>
+        </div>
+    </section>
+    <section>
+
+
+        <div class="container-paciente">
+            <div class="container-title"> Consultas</div>
+            <div class="content">
+                {% if consulta %}
+                <div class="status">
+                   <li>Data</li>
+                   <li>Horário</li>
+                   <li>Médico</li>
+                   <li>Especialidade</li>
+                </div>
+                {% for x in consulta %}
+
+                <div class="border-box">
+                    <div class="box-agendamento">
+                        <li>{{x.data_da_consulta_marcada|date:"l"}} <p>{{x.data_da_consulta_marcada|date}} </p></li>
+                        <li style="font-size: 2.2vw;"> {{x.data_da_consulta_marcada|time}}</li>
+                        <li>{{x.medico_e_especialidade}}</li>
+                        <li>{{x.medico_e_especialidade.Especialidade}}</li>
+                    </div>
+                    <div class="remarcar">
+                        <a href="">Remarcar</a>
+                    </div>
+                 </div>
+                <p>
+                  {% endfor%}
+
+        
+                </p>
+                <p>
+                {{consulta.paciente}}
+                {% endif%}
+                </p>
+                {% if messages %}
+                <div class="NaoPossuiAgendamento">
+                    
+                    <p class="message">{% for message in messages %}{{message}}{% endfor%}</p>
+
+                </div>
+                <div class="button">
+                    <a  href="{% url 'agendar_consulta' %}">agendar agora</a>
+                </div>
+
+                {% endif%}
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-paciente">
+            <div class="container-title"> Exames</div>
+
+            <div class="content">
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-paciente">
+            <div class="container-title"> Configurações</div>
+
+            <div class="content">
+                {{user.username}}
+            </div>
+        </div>
+    </section>
+
+</div>
+
+</body>
+
+<script src="{% static 'js/paciente.js'%}"></script>
+{% endblock content%}

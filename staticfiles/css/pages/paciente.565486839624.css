@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "myFirstFont";
+  src: url("../../fonts/FontsFree-Net-AmpleSoftPro.eb39697f80a0.ttf");
+}
+body {
+  margin: 0 auto;
+  padding: 0px;
+}
+
+.lista {
+  width: 60%;
+  font-size: 1.5vw;
+  margin: 0 auto;
+}
+
+.lista ul {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  justify-content: space-between;
+  display: flex;
+}
+
+.content {
+  height: 500px;
+  border-radius: 20px;
+  border: 1px solid;
+  width: 70%;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.container-title {
+  width: 70%;
+  margin-bottom: 20px;
+  font-size: 2vw;
+  margin: 0 auto;
+}
+
+.js-tabcontent section {
+  display: none;
+}
+
+.js-tabmenu {
+  cursor: pointer;
+}
+
+.js-tabcontent section.ativo {
+  display: block !important;
+}
+
+.js-tabmenu li.border-bottom {
+  border-bottom: 3px solid #169081;
+  transition: 0.1s;
+}

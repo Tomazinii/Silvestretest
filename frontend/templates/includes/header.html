@@ -1,0 +1,49 @@
+{% load static%}
+<link rel="stylesheet" href="{% static 'css/includes/header.css'%}">
+
+
+<header>
+    <div class="container-header">
+        <div class="container-content-header">
+            <a style="color: #00605B;" href="{% url 'home'%}">
+                <div class="box-logo-name">
+                    <div class="logo-header">
+                    
+                    </div>
+                    <div class="nomelogo">
+                        <p class="hospital">Hospital</p><p class="Silvestre">Silvestre</p>
+                    </div>
+                </div>
+            </a>
+                <a class="elements" href="">Pesquisar</a>
+                <a class="elements" href="">Quem somos</a>
+                <a class="elements" href="">Para Você</a>
+                <a class="elements" href="">Para Empresas</a>
+                <a class="elements" href="">Vida Saudável</a>
+                {% if user.is_authenticated and user.is_paciente %}
+                <a class="elements" href="{% url 'paciente' user.id%}">Portal do Paciente</a>
+                {% elif not user.is_authenticated%}
+                <a class="elements" href="{% url 'login'%}">Portal do Paciente</a>
+                {% endif%}
+
+                {% if user.is_authenticated and user.is_medico %}
+                <a class="elements" href="{% url 'medico' user.id%}">Portal do Médico</a>
+                {% elif not user.is_paciente %}
+                <a class="elements" href="{% url 'login_medico'%}">Portal do Médico</a>
+                {% endif%}
+
+                {% if user.is_authenticated and user.is_paciente%}
+                <a class="elements" href="{% url 'logout'%}">Sair</a>
+                {% endif%}
+                {% if user.is_authenticated and user.is_medico%}
+
+                <a class="elements" href="{% url 'logout_medico'%}">Sair</a>
+                {% endif%}
+
+            <div class="content-header">
+                <div class="content-header-menu"><i class="fas fa-bars"></i></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/407f74df21.js" crossorigin="anonymous"></script>
+</header>

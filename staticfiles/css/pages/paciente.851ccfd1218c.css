@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "myFirstFont";
+  src: url("../../fonts/FontsFree-Net-AmpleSoftPro.eb39697f80a0.ttf");
+}
+body {
+  background-color: rgb(129, 158, 158);
+  margin: 0 auto;
+  padding: 0px;
+}
+
+.container-paciente {
+  margin-top: 50px;
+  height: 500px;
+}
